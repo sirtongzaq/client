@@ -1,0 +1,62 @@
+.main-col {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 20px;
+    padding-top: 100px;
+
+
+    .input-container {
+        position: relative;
+        width: 100%;
+        margin-bottom: 10px;
+
+        .input-user {
+            align-items: center;
+            background-color: #2e2e2e;
+            padding: 10px 40px;
+            height: 40px;
+            font-size: large;
+            border-radius: 10px;
+            outline: none;
+            color: #fff;
+            border: none;
+            width: calc(100% - 80px);
+        }
+
+        .icon {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            opacity: 30%;
+        }
+    }
+
+
+    .card-user {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .card-user-list {
+            display: flex;
+            flex-direction: column;
+            width: calc(100% / 3 - 40px);
+            background-color: #464646;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            color: #fff;
+            transition: transform 0.2s ease-in-out;
+
+            &:hover {
+                background-color: #565656;
+                box-shadow: rgb(149, 83, 255) 1px 1px 20px;
+                transform: scale(1.02);
+
+            }
+        }
+    }
+
+
+}

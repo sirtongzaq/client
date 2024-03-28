@@ -1,0 +1,39 @@
+<main class="main-col">
+  <input
+    type="text"
+    placeholder="Username"
+    name="username"
+    [(ngModel)]="username"
+    (input)="validateAll()"
+    required
+  />
+  <input
+    type="email"
+    placeholder="Email"
+    name="email"
+    [(ngModel)]="email"
+    (input)="validateAll()"
+    required
+  />
+  <input
+    type="password"
+    placeholder="Password"
+    name="password"
+    [(ngModel)]="password"
+    (input)="validatePassword()"
+    required
+  />
+  <input
+    type="password"
+    placeholder="Confirm Password"
+    name="confirmPassword"
+    [(ngModel)]="confirmPassword"
+    (input)="validatePassword()"
+    required
+  />
+
+  <button type="button" (click)="register()">Submit</button>
+
+  <div *ngIf="!passwordMatch" style="color: red">Passwords do not match</div>
+  <div *ngIf="!validate" style="color: red">Please fill all input</div>
+</main>

@@ -1,0 +1,25 @@
+<main class="main-col">
+  <div class="input-container">
+    <input
+      type="text"
+      [(ngModel)]="searchText"
+      name="searchText"
+      (input)="searchUsers()"
+      class="input-user"
+      placeholder="Type to search"
+    />
+    <mat-icon class="icon">search</mat-icon>
+  </div>
+
+  <div class="card-user">
+    <div *ngFor="let user of users" class="card-user-list">
+      <p>{{ user._id }}</p>
+      <p>{{ user.username }}</p>
+      <p>{{ user.email }}</p>
+      <p>{{ user.createdAt }}</p>
+    </div>
+    <div *ngIf="users.length === 0">
+      <p>No users found</p>
+    </div>
+  </div>
+</main>

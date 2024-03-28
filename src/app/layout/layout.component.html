@@ -1,0 +1,22 @@
+<title>Todolist</title>
+<nav class="navbar">
+  <a class="navbar-brand" (click)="routeHome()">LOGO</a>
+  <div class="navbar-menu">
+    <ul>
+      <li><a (click)="routeHome()">Home</a></li>
+      <li><a>About</a></li>
+      <li><a>Contact</a></li>
+    </ul>
+  </div>
+  <div class="navbar-user-info">
+    <img
+      class="user-avatar"
+      src="https://gravatar.com/avatar/4d26e5f609df1ae3a5d9bba3d202700f?s=400&d=robohash&r=x"
+      alt="user"
+    />
+    <p class="user-name">Username</p>
+    <mat-icon class="logout-icon">logout</mat-icon>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
