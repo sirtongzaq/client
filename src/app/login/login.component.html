@@ -1,2 +1,32 @@
-<p>login works!</p>
-<p>test</p>
+<main class="main-col">
+  <div class="register-container">
+    <div class="register-header">
+      <div></div>
+      <h1 class="register-title">Login</h1>
+      <div></div>
+    </div>
+    <input
+      type="text"
+      placeholder="Username"
+      name="username"
+      [(ngModel)]="username"
+      (input)="validateAll()"
+      required
+    />
+    <input
+      type="password"
+      placeholder="Password"
+      name="password"
+      [(ngModel)]="password"
+      (input)="validateAll()"
+      required
+    />
+
+    <div class="button-container">
+      <button type="button" (click)="login()">Login</button>
+      <button type="button" (click)="routeRegister()">Register</button>
+    </div>
+
+    <div *ngIf="!validate" style="color: red">Please fill all input</div>
+  </div>
+</main>

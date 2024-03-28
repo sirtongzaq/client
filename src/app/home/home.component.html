@@ -13,6 +13,17 @@
 
   <div class="card-user">
     <div *ngFor="let user of users" class="card-user-list">
+      <div class="tools">
+        <div class="circle">
+          <span class="red box"></span>
+        </div>
+        <div class="circle">
+          <span class="yellow box"></span>
+        </div>
+        <div class="circle">
+          <span class="green box"></span>
+        </div>
+      </div>
       <p>{{ user._id }}</p>
       <p>{{ user.username }}</p>
       <p>{{ user.email }}</p>

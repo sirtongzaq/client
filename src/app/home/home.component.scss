@@ -14,13 +14,21 @@
             align-items: center;
             background-color: #2e2e2e;
             padding: 10px 40px;
-            height: 40px;
+            height: 30px;
             font-size: large;
             border-radius: 10px;
             outline: none;
             color: #fff;
             border: none;
             width: calc(100% - 80px);
+
+            &:hover {
+                box-shadow: 0 0 0 5px #3b83f65f;
+            }
+
+            &:focus {
+                box-shadow: 0 0 0 5px #3b83f65f;
+            }
         }
 
         .icon {
@@ -41,7 +49,7 @@
         .card-user-list {
             display: flex;
             flex-direction: column;
-            width: calc(100% / 3 - 40px);
+            width: calc(100% / 5 - 40px);
             background-color: #464646;
             border-radius: 10px;
             padding: 10px;
@@ -50,10 +58,58 @@
             transition: transform 0.2s ease-in-out;
 
             &:hover {
-                background-color: #565656;
-                box-shadow: rgb(149, 83, 255) 1px 1px 20px;
+                background-color: #3b82f6;
+                box-shadow: 0 0 0 5px #3b83f65f;
+                color: #fff;
                 transform: scale(1.02);
 
+            }
+
+            .tools {
+                display: flex;
+                align-items: center;
+                padding: 9px;
+
+                .circle {
+                    padding: 0 4px;
+
+                }
+
+                .box {
+                    display: inline-block;
+                    align-items: center;
+                    width: 10px;
+                    height: 10px;
+                    padding: 1px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    transition: transform 0.2s ease-in-out;
+
+                }
+
+                .red {
+                    background-color: #ff605c;
+
+                    &:hover {
+                        transform: scale(1.5);
+                    }
+                }
+
+                .yellow {
+                    background-color: #ffbd44;
+
+                    &:hover {
+                        transform: scale(1.5);
+                    }
+                }
+
+                .green {
+                    background-color: #00ca4e;
+
+                    &:hover {
+                        transform: scale(1.5);
+                    }
+                }
             }
         }
     }

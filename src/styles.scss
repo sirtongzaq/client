@@ -42,5 +42,13 @@ body {
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: monospace;
+
+}
+
+input,
+button,
+select,
+textarea {
+    font-family: monospace;
 }

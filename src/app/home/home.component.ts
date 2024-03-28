@@ -28,8 +28,7 @@ export class HomeComponent implements OnInit {
 
   searchUsers(): void {
     if (!this.searchText.trim()) {
-      // this.getUsers();
-      this.users = [];
+      this.getUsers();
       return;
     }
     this.userService.getUsers().subscribe((users) => {

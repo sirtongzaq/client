@@ -1,39 +1,52 @@
 <main class="main-col">
-  <input
-    type="text"
-    placeholder="Username"
-    name="username"
-    [(ngModel)]="username"
-    (input)="validateAll()"
-    required
-  />
-  <input
-    type="email"
-    placeholder="Email"
-    name="email"
-    [(ngModel)]="email"
-    (input)="validateAll()"
-    required
-  />
-  <input
-    type="password"
-    placeholder="Password"
-    name="password"
-    [(ngModel)]="password"
-    (input)="validatePassword()"
-    required
-  />
-  <input
-    type="password"
-    placeholder="Confirm Password"
-    name="confirmPassword"
-    [(ngModel)]="confirmPassword"
-    (input)="validatePassword()"
-    required
-  />
+  <div class="register-container">
+    <div class="register-header">
+      <mat-icon class="back-icon" (click)="routeBack()"
+        >arrow_back_ios</mat-icon
+      >
+      <h1 class="register-title">Register</h1>
+      <div></div>
+    </div>
+    <input
+      type="text"
+      placeholder="Username"
+      name="username"
+      [(ngModel)]="username"
+      (input)="validateAll()"
+      required
+    />
+    <input
+      type="text"
+      placeholder="Email"
+      name="email"
+      [(ngModel)]="email"
+      (input)="validateAll()"
+      required
+    />
+    <input
+      type="password"
+      placeholder="Password"
+      name="password"
+      [(ngModel)]="password"
+      (input)="validateAll()"
+      required
+    />
+    <input
+      type="password"
+      placeholder="Confirm Password"
+      name="confirmPassword"
+      [(ngModel)]="confirmPassword"
+      (input)="validateAll()"
+      required
+    />
 
-  <button type="button" (click)="register()">Submit</button>
+    <div class="button-container">
+      <button type="button" (click)="register()">Create Account</button>
+    </div>
 
-  <div *ngIf="!passwordMatch" style="color: red">Passwords do not match</div>
-  <div *ngIf="!validate" style="color: red">Please fill all input</div>
+    <div *ngIf="!passwordMatch" style="color: red">Passwords do not match</div>
+    <div *ngIf="!validate" style="color: red">Please fill all input</div>
+  </div>
 </main>
+
+
