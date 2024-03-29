@@ -4,6 +4,6 @@ export interface Todos {
   title: string;
   desc: string;
   status: string;
-  finishAt: string;
-  createdAt: string;
+  finishAt: Date;
+  createdAt: Date;
 }

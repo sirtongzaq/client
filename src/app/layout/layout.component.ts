@@ -1,39 +1,64 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterOutlet } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { UserService } from '../user.service';
-
+import { CreateComponent } from '../create/create.component';
+import { CommonModule } from '@angular/common';
+import { trigger, transition, style, animate } from '@angular/animations';
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [MatIconModule, RouterOutlet],
+  imports: [MatIconModule, RouterOutlet, CreateComponent, CommonModule],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('200ms ease-out', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [animate('300ms ease-in', style({ opacity: 0 }))]),
+    ]),
+  ],
 })
 export class LayoutComponent implements OnInit {
   isLogin: boolean = false;
+  isOpenCreate: boolean = false;
   user: any = null;
+  innerWidth: number = window.innerWidth;
+  mobileMode: boolean = false;
   constructor(
     public router: Router,
     private authService: AuthService,
     private userService: UserService
   ) {}
 
+  @HostListener('window:resize')
+  onResize() {
+    this.innerWidth = window.innerWidth;
+    console.log('Window width:', this.innerWidth);
+    this.mobileMode = this.innerWidth < 768;
+  }
+
   ngOnInit(): void {
     this.getUserByToken();
+    this.innerWidth = window.innerWidth;
+    this.mobileMode = this.innerWidth < 768;
+  }
+
+  toggleCreateTodo(): void {
+    this.isOpenCreate = !this.isOpenCreate;
   }
 
   getUserByToken() {
     this.authService.getUserByToken().subscribe({
       next: (res) => {
         if (res) {
-          console.log(res);
           this.user = res;
           this.userService.setUserData(res.user);
           this.isLogin = true;
-          console.log('user', this.user);
         } else {
           console.log('No user found');
         }

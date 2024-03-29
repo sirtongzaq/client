@@ -1,30 +1,63 @@
-<title>Todolist</title>
-<nav class="navbar">
-  <a class="navbar-brand" (click)="routeHome()">LOGO</a>
-  <div class="navbar-menu">
-    <ul>
-      <li><a (click)="routeHome()">Home</a></li>
-      <li><a>About</a></li>
-      <li><a>Contact</a></li>
-    </ul>
-  </div>
-  <div class="navbar-user-info">
-    <img
-      class="user-avatar"
-      src="https://gravatar.com/avatar/4d26e5f609df1ae3a5d9bba3d202700f?s=400&d=robohash&r=x"
-      alt="user"
-    />
-    <p class="user-name">{{ user.user.username }}</p>
-    <mat-icon class="logout-icon" (click)="logout()">logout</mat-icon>
-  </div>
-</nav>
+<!-- Desktop UI -->
+<div *ngIf="!mobileMode">
+  <title>Todolist</title>
+  <nav class="navbar">
+    <a class="navbar-brand" (click)="routeHome()">LOGO</a>
+    <div class="navbar-menu">
+      <ul>
+        <li><a (click)="routeHome()">Home</a></li>
+        <li><a>About</a></li>
+        <li><a>Contact</a></li>
+      </ul>
+    </div>
+    <div class="navbar-user-info">
+      <img
+        class="user-avatar"
+        src="https://gravatar.com/avatar/4d26e5f609df1ae3a5d9bba3d202700f?s=400&d=robohash&r=x"
+        alt="user"
+      />
+      <p class="user-name">{{ user.user.username }}</p>
+      <mat-icon class="logout-icon" (click)="logout()">logout</mat-icon>
+    </div>
+  </nav>
+</div>
+
+<!-- Mobile UI -->
+<div *ngIf="mobileMode">
+  <title>Todolist</title>
+  <nav class="navbar">
+    <div class="navbar-group-row">
+      <a class="navbar-brand" (click)="routeHome()">LOGO</a>
+      <div class="navbar-menu">
+        <ul>
+          <li><a (click)="routeHome()">Home</a></li>
+          <li><a>About</a></li>
+          <li><a>Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="navbar-user-info">
+      <img
+        class="user-avatar"
+        src="https://gravatar.com/avatar/4d26e5f609df1ae3a5d9bba3d202700f?s=400&d=robohash&r=x"
+        alt="user"
+      />
+      <p class="user-name">{{ user.user.username }}</p>
+      <mat-icon class="logout-icon" (click)="logout()">logout</mat-icon>
+    </div>
+  </nav>
+</div>
 
 <router-outlet></router-outlet>
 
-<div class="floating-container">
-  <!-- <div class="floating-button">+</div> -->
-  <!-- <mat-icon class="floating-button">add_icon</mat-icon> -->
+<div class="floating-container" (click)="toggleCreateTodo()">
   <div class="floating-button">
     <mat-icon style="width: 24px; height: 19px">add_icon</mat-icon>
   </div>
 </div>
+
+<app-create
+  *ngIf="isOpenCreate"
+  (closeCreateEvent)="toggleCreateTodo()"
+  [@fadeInOut]
+></app-create>

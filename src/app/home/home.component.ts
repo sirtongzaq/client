@@ -29,6 +29,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getUserData();
     this.getTodoData();
+    this.todoService.update$.subscribe(() => {
+      this.getTodoData();
+    });
   }
 
   getTodoData(): void {

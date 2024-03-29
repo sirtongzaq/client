@@ -120,3 +120,21 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .navbar-group-row {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+    }
+
+    .navbar-user-info {
+        margin-left: auto !important;
+        padding-left: 10px !important;
+    }
+}
