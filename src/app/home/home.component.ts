@@ -4,7 +4,9 @@ import { Users } from '../users.interface';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-
+import { AuthService } from '../auth.service';
+import { TodoService } from '../todo.service';
+import { Todos } from '../todo.interface';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -14,28 +16,39 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class HomeComponent implements OnInit {
   users: Users[] = [];
+  todos: Todos[] = [];
   public searchText: string = '';
+  userdata: any;
 
-  constructor(public userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private authService: AuthService,
+    private todoService: TodoService
+  ) {}
 
   ngOnInit(): void {
-    this.getUsers();
+    this.getUserData();
+    this.getTodoData();
   }
 
-  getUsers(): void {
-    this.userService.getUsers().subscribe((users) => (this.users = users));
+  getTodoData(): void {
+    this.todoService.getTodos().subscribe((todos) => {
+      this.todos = todos.filter((todo) => todo.user_id == this.userdata._id);
+    });
+  }
+
+  getUserData(): void {
+    this.userdata = this.userService.getUserData();
   }
 
   searchUsers(): void {
     if (!this.searchText.trim()) {
-      this.getUsers();
+      this.getTodoData();
       return;
     }
-    this.userService.getUsers().subscribe((users) => {
-      this.users = users.filter((user) =>
-        user.username
-          .toLowerCase()
-          .includes(this.searchText.trim().toLowerCase())
+    this.todoService.getTodos().subscribe((todos) => {
+      this.todos = todos.filter((todo) =>
+        todo.title.toLowerCase().includes(this.searchText.trim().toLowerCase())
       );
     });
   }

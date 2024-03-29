@@ -1,5 +1,5 @@
 <main class="main-col">
-  <div class="register-container">
+  <form id="register-form" class="register-container">
     <div class="register-header">
       <div></div>
       <h1 class="register-title">Login</h1>
@@ -23,10 +23,12 @@
     />
 
     <div class="button-container">
-      <button type="button" (click)="login()">Login</button>
+      <button type="submit" (click)="login()" form="register-form">
+        Login
+      </button>
       <button type="button" (click)="routeRegister()">Register</button>
     </div>
 
     <div *ngIf="!validate" style="color: red">Please fill all input</div>
-  </div>
+  </form>
 </main>

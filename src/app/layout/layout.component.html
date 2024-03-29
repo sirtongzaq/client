@@ -14,9 +14,17 @@
       src="https://gravatar.com/avatar/4d26e5f609df1ae3a5d9bba3d202700f?s=400&d=robohash&r=x"
       alt="user"
     />
-    <p class="user-name">Username</p>
-    <mat-icon class="logout-icon">logout</mat-icon>
+    <p class="user-name">{{ user.user.username }}</p>
+    <mat-icon class="logout-icon" (click)="logout()">logout</mat-icon>
   </div>
 </nav>
 
 <router-outlet></router-outlet>
+
+<div class="floating-container">
+  <!-- <div class="floating-button">+</div> -->
+  <!-- <mat-icon class="floating-button">add_icon</mat-icon> -->
+  <div class="floating-button">
+    <mat-icon style="width: 24px; height: 19px">add_icon</mat-icon>
+  </div>
+</div>

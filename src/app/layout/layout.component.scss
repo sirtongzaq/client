@@ -64,6 +64,7 @@
 
         .user-name {
             cursor: pointer;
+            text-transform: capitalize;
 
             &:hover {
                 color: #3b82f6
@@ -77,6 +78,45 @@
             &:hover {
                 color: #ff6e6e;
             }
+        }
+    }
+}
+
+.floating-container {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    bottom: 0;
+    right: 0;
+    margin: 35px 25px;
+
+    &:hover {
+        transform: translatey(5px);
+        transition: all 0.3s;
+    }
+
+    .floating-button {
+        position: absolute;
+        align-items: center;
+        width: 65px;
+        height: 65px;
+        background: #3b82f6;
+        bottom: 0;
+        border-radius: 50%;
+        left: 10px;
+        right: 0;
+        margin: auto;
+        color: white;
+        line-height: 65px;
+        text-align: center;
+        font-size: 23px;
+        z-index: 100;
+        box-shadow: 0 10px 25px -5px rgba(44, 179, 240, 0.6);
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+            box-shadow: 0 10px 25px rgba(44, 179, 240, 0.6);
         }
     }
 }

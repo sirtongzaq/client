@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { UserService } from '../user.service';
+import { AuthService } from '../auth.service';
 import { Users } from '../users.interface';
 import Swal from 'sweetalert2';
 
@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
   passwordMatch: boolean = false;
   validate: boolean = false;
   constructor(
-    private userService: UserService,
+    private authService: AuthService,
     private route: Router,
     private location: Location
   ) {}
@@ -61,7 +61,7 @@ export class RegisterComponent implements OnInit {
       _id: '',
       createdAt: '',
     };
-    this.userService.addUser(user).subscribe(
+    this.authService.addUser(user).subscribe(
       (res) => {
         console.log(res);
         Swal.fire({

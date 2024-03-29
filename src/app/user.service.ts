@@ -8,14 +8,15 @@ import { Users } from './users.interface';
 })
 export class UserService {
   private apiUrl = 'http://localhost:3000';
+  private userData: any;
 
   constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<Users[]> {
-    return this.http.get<Users[]>(`${this.apiUrl}/auth/getuser`);
+  setUserData(userData: any) {
+    this.userData = userData;
   }
 
-  addUser(user: Users): Observable<Users> {
-    return this.http.post<Users>(`${this.apiUrl}/auth/register`, user);
+  getUserData() {
+    return this.userData;
   }
 }
