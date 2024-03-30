@@ -1,0 +1,80 @@
+.main-col {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 20px;
+    padding-top: 100px;
+
+    .profile-container {
+        display: flex;
+        flex-direction: column;
+        color: #fff;
+        background-color: #464646;
+        border-radius: 10px;
+        padding: 20px;
+        font-size: large;
+
+        label {
+            color: #0061ff;
+            margin-bottom: 10px;
+            font-size: large;
+            font-weight: bold;
+        }
+
+        .status-bar {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .text-count {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                font-size: large;
+                font-weight: bold;
+                color: #0061ff;
+                position: absolute;
+                left: 50%;
+                margin-top: 7px;
+            }
+
+            .progress-bar {
+                width: 100%;
+                height: 30px;
+                background-color: #fff;
+                border-radius: 10px;
+                overflow: hidden;
+                margin-bottom: 10px;
+            }
+
+            .progress {
+                height: 100%;
+                background-color: #3b82f6;
+                width: 0%;
+                transition: width 0.3s ease;
+                margin-bottom: 10px;
+            }
+
+            .active {
+                background-color: #ffbd44;
+            }
+
+            .done {
+                background-color: #00ca4e;
+            }
+
+            .fail {
+                background-color: #ff605c;
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-col {
+        padding-top: 130px !important;
+    }
+
+
+}

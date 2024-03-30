@@ -2,12 +2,14 @@
 <div *ngIf="!mobileMode">
   <title>Todolist</title>
   <nav class="navbar">
-    <a class="navbar-brand" (click)="routeHome()">LOGO</a>
+    <mat-icon (click)="routeHome()" class="navbar-brand"
+      >library_books</mat-icon
+    >
     <div class="navbar-menu">
       <ul>
         <li><a (click)="routeHome()">Home</a></li>
-        <li><a>About</a></li>
-        <li><a>Contact</a></li>
+        <!-- <li><a>About</a></li> -->
+        <li><a (click)="routeContact()">Contact</a></li>
       </ul>
     </div>
     <div class="navbar-user-info">
@@ -16,7 +18,7 @@
         src="https://gravatar.com/avatar/4d26e5f609df1ae3a5d9bba3d202700f?s=400&d=robohash&r=x"
         alt="user"
       /> -->
-      <p class="user-name">{{ user.user.username }}</p>
+      <p class="user-name" (click)="routeProfile()">{{ user.user.username }}</p>
       <mat-icon class="logout-icon" (click)="logout()">logout</mat-icon>
     </div>
   </nav>
@@ -26,23 +28,19 @@
 <div *ngIf="mobileMode">
   <title>Todolist</title>
   <nav class="navbar">
-    <div class="navbar-group-row">
-      <a class="navbar-brand" (click)="routeHome()">LOGO</a>
-      <div class="navbar-menu">
-        <ul>
-          <li><a (click)="routeHome()">Home</a></li>
-          <li><a>About</a></li>
-          <li><a>Contact</a></li>
-        </ul>
-      </div>
+    <mat-icon (click)="routeHome()" class="navbar-brand"
+      >library_books</mat-icon
+    >
+
+    <div class="navbar-menu">
+      <ul>
+        <li><a (click)="routeHome()">Home</a></li>
+        <!-- <li><a>About</a></li> -->
+        <li><a (click)="routeContact()">Contact</a></li>
+      </ul>
     </div>
     <div class="navbar-user-info">
-      <!-- <img
-        class="user-avatar"
-        src="https://gravatar.com/avatar/4d26e5f609df1ae3a5d9bba3d202700f?s=400&d=robohash&r=x"
-        alt="user"
-      /> -->
-      <p class="user-name">{{ user.user.username }}</p>
+      <p class="user-name" (click)="routeProfile()">{{ user.user.username }}</p>
       <mat-icon class="logout-icon" (click)="logout()">logout</mat-icon>
     </div>
   </nav>

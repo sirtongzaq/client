@@ -38,14 +38,15 @@ export class LayoutComponent implements OnInit {
   @HostListener('window:resize')
   onResize() {
     this.innerWidth = window.innerWidth;
-    console.log('Window width:', this.innerWidth);
     this.mobileMode = this.innerWidth < 768;
+    this.userService.setMobileMode(this.mobileMode);
   }
 
   ngOnInit(): void {
     this.getUserByToken();
     this.innerWidth = window.innerWidth;
     this.mobileMode = this.innerWidth < 768;
+    this.userService.setMobileMode(this.mobileMode);
   }
 
   toggleCreateTodo(): void {
@@ -90,5 +91,11 @@ export class LayoutComponent implements OnInit {
 
   routeHome() {
     this.router.navigate(['/home']);
+  }
+  routeProfile() {
+    this.router.navigate(['/profile']);
+  }
+  routeContact() {
+    this.router.navigate(['/contact']);
   }
 }

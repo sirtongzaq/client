@@ -1,0 +1,36 @@
+<main class="main-col">
+  <div class="profile-container">
+    <div *ngFor="let user of userData" class="user-info">
+      <label>Email</label>
+      <p>{{ user.email }}</p>
+      <label>Username</label>
+      <p>{{ user.username }}</p>
+      <label>Created At</label>
+      <p>{{ user.createdAt | date : "short" }}</p>
+    </div>
+    <label>Done</label>
+    <div class="status-bar">
+      <p class="text-count">{{ getDoneCount() }}/{{ todoUserData.length }}</p>
+      <div class="progress-bar">
+        <div class="progress done" [style.width.%]="getDonePercentage()"></div>
+      </div>
+    </div>
+    <label>Active</label>
+    <div class="status-bar">
+      <p class="text-count">{{ getActiveCount() }}/{{ todoUserData.length }}</p>
+      <div class="progress-bar">
+        <div
+          class="progress active"
+          [style.width.%]="getActivePercentage()"
+        ></div>
+      </div>
+    </div>
+    <label>Fail</label>
+    <div class="status-bar">
+      <p class="text-count">{{ getFailCount() }}/{{ todoUserData.length }}</p>
+      <div class="progress-bar">
+        <div class="progress fail" [style.width.%]="getFailPercentage()"></div>
+      </div>
+    </div>
+  </div>
+</main>

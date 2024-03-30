@@ -9,7 +9,7 @@ import { Users } from './users.interface';
 export class UserService {
   private apiUrl = 'http://localhost:3000';
   private userData: any;
-
+  private mobileMode: any;
   constructor(private http: HttpClient) {}
 
   setUserData(userData: any) {
@@ -18,5 +18,13 @@ export class UserService {
 
   getUserData() {
     return this.userData;
+  }
+
+  setMobileMode(mobileMode: any) {
+    this.mobileMode = mobileMode;
+  }
+
+  getMobileMode() {
+    return this.mobileMode;
   }
 }
