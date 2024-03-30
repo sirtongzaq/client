@@ -65,6 +65,64 @@
 
             }
 
+            .todo-body {
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+            }
+
+            label {
+                padding: 10px;
+                // color: #3b82f6;
+            }
+
+            .todo-title {
+                padding: 10px;
+                background-color: #303030;
+                border-radius: 10px;
+            }
+
+            .todo-desc {
+                padding: 10px;
+                background-color: #303030;
+                border-radius: 10px;
+                white-space: pre-wrap;
+            }
+
+            .todo-status {
+                padding: 10px;
+                background-color: #303030;
+                border-radius: 10px;
+
+            }
+
+            .todo-createAt {
+                padding: 10px;
+                background-color: #303030;
+                border-radius: 10px;
+
+            }
+
+            .todo-finishAt {
+                padding: 10px;
+                background-color: #303030;
+                border-radius: 10px;
+
+            }
+
+
+            .active {
+                background-color: #ffbd44;
+            }
+
+            .done {
+                background-color: #00ca4e;
+            }
+
+            .fail {
+                background-color: #ff605c;
+            }
+
             .tools {
                 display: flex;
                 align-items: center;

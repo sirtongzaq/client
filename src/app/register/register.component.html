@@ -1,5 +1,5 @@
 <main class="main-col">
-  <div class="register-container">
+  <form class="register-container" id="register-form">
     <div class="register-header">
       <mat-icon class="back-icon" (click)="routeBack()"
         >arrow_back_ios</mat-icon
@@ -41,12 +41,12 @@
     />
 
     <div class="button-container">
-      <button type="button" (click)="register()">Create Account</button>
+      <button type="submit" (click)="register()" form="register-form">
+        Create Account
+      </button>
     </div>
 
     <div *ngIf="!passwordMatch" style="color: red">Passwords do not match</div>
     <div *ngIf="!validate" style="color: red">Please fill all input</div>
-  </div>
+  </form>
 </main>
-
-

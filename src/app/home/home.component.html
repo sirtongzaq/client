@@ -15,23 +15,52 @@
     <div *ngFor="let todo of todos" class="card-user-list">
       <div class="tools">
         <div class="circle">
-          <span class="red box"></span>
+          <span class="red box" (click)="delTodo(todo._id)"></span>
         </div>
         <div class="circle">
-          <span class="yellow box"></span>
+          <span
+            class="yellow box"
+            (click)="updateStatus(todo._id, 'Active')"
+          ></span>
         </div>
         <div class="circle">
-          <span class="green box"></span>
+          <span
+            class="green box"
+            (click)="updateStatus(todo._id, 'Done')"
+          ></span>
         </div>
       </div>
-      <p>{{ todo.title }}</p>
-      <p>{{ todo.desc }}</p>
-      <p>{{ todo.status }}</p>
-      <p>{{ todo.createdAt | date : "medium" }}</p>
-      <p>{{ todo.finishAt | date : "medium" }}</p>
+      <div class="todo-body" (click)="callMultipleFunctions([todo])">
+        <label>Title</label>
+        <p class="todo-title">{{ todo.title }}</p>
+        <label>Description</label>
+        <p class="todo-desc">{{ todo.desc }}</p>
+        <label>Status</label>
+        <p
+          [ngClass]="{
+            'todo-status': true,
+            active: todo.status === 'Active',
+            done: todo.status === 'Done',
+            fail: todo.status === 'Fail'
+          }"
+        >
+          {{ todo.status }}
+        </p>
+        <label>Start Date</label>
+        <p class="todo-createAt">{{ todo.createdAt | date : "short" }}</p>
+        <label>End Date</label>
+        <p class="todo-finishAt">{{ todo.finishAt | date : "short" }}</p>
+      </div>
     </div>
     <div class="no-data" *ngIf="todos.length === 0">
       <p>No todo found</p>
     </div>
   </div>
 </main>
+
+<app-update
+  *ngIf="isOpenUpdate"
+  (closeCreateEvent)="toggleUpdateTodo()"
+  [todoData]="selectedTodo"
+  [@fadeInOut]
+></app-update>

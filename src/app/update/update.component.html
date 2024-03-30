@@ -1,0 +1,106 @@
+<div class="create-container">
+  <div class="create-content">
+    <div class="tools">
+      <div class="circle">
+        <span class="red box" (click)="closeCreate()"></span>
+      </div>
+      <div class="circle">
+        <span class="yellow box" (click)="closeCreate()"></span>
+      </div>
+      <div class="circle">
+        <span class="green box" (click)="closeCreate()"></span>
+      </div>
+    </div>
+
+    <form class="create-form">
+      <label for="title">Title</label>
+      <input
+        class="input-text-field"
+        type="text"
+        name="title"
+        id="title"
+        [(ngModel)]="title"
+        (ngModelChange)="validateForm()"
+      />
+      <label for="desc">Description</label>
+      <textarea
+        name="desc"
+        id="desc"
+        rows="10"
+        cols="10"
+        [(ngModel)]="desc"
+        (ngModelChange)="validateForm()"
+      ></textarea>
+      <label for="status">Status</label>
+      <div class="radio-button-container">
+        <div class="radio-button">
+          <input
+            type="radio"
+            class="radio-button__input"
+            id="radio1"
+            name="radio-group"
+            value="Active"
+            [(ngModel)]="status"
+            (ngModelChange)="validateForm()"
+            checked
+          />
+          <label class="radio-button__label" for="radio1">
+            <span class="radio-button__custom"></span>
+            Active
+          </label>
+        </div>
+        <div class="radio-button">
+          <input
+            type="radio"
+            class="radio-button__input"
+            id="radio2"
+            name="radio-group"
+            value="Done"
+            [(ngModel)]="status"
+            (ngModelChange)="validateForm()"
+          />
+          <label class="radio-button__label" for="radio2">
+            <span class="radio-button__custom"></span>
+            Done
+          </label>
+        </div>
+        <div class="radio-button">
+          <input
+            type="radio"
+            class="radio-button__input"
+            id="radio3"
+            name="radio-group"
+            value="Fail"
+            [(ngModel)]="status"
+            (ngModelChange)="validateForm()"
+          />
+          <label class="radio-button__label" for="radio3">
+            <span class="radio-button__custom"></span>
+            Fail
+          </label>
+        </div>
+      </div>
+      <label for="title">Finish Date</label>
+      <input
+        class="custom-date-input"
+        type="date"
+        name="date"
+        id="date"
+        [(ngModel)]="selectedDate"
+        (ngModelChange)="formatDate($event)"
+      />
+
+      <input
+        class="custom-date-input"
+        type="time"
+        name="time"
+        id="time"
+        [(ngModel)]="selectedTime"
+        (ngModelChange)="formatTime($event)"
+      />
+      <button type="submit" (click)="Create()">Update</button>
+    </form>
+
+    <div class="create-footer"></div>
+  </div>
+</div>
