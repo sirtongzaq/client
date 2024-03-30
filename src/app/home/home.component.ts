@@ -77,7 +77,7 @@ export class HomeComponent implements OnInit {
       this.getTodoData();
       return;
     }
-    this.todoService.getTodos().subscribe((todos) => {
+    this.todoService.getTodoByUserId(this.userdata._id).subscribe((todos) => {
       this.todos = todos.filter((todo) =>
         todo.title.toLowerCase().includes(this.searchText.trim().toLowerCase())
       );
