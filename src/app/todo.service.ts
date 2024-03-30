@@ -9,7 +9,8 @@ import { Todos } from './todo.interface';
   providedIn: 'root',
 })
 export class TodoService {
-  private apiUrl = 'http://localhost:3000';
+  // private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'https://server-pw6s.onrender.com';
   constructor(private http: HttpClient) {}
 
   private updateSubject = new BehaviorSubject<boolean>(false);

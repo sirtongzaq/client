@@ -8,10 +8,9 @@ import { Users } from './users.interface';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000';
-
+  // private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'https://server-pw6s.onrender.com';
   constructor(private http: HttpClient) {}
-
 
   addUser(user: Users): Observable<Users> {
     return this.http.post<Users>(`${this.apiUrl}/auth/register`, user);
