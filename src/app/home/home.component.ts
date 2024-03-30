@@ -8,9 +8,19 @@ import { AuthService } from '../auth.service';
 import { TodoService } from '../todo.service';
 import { Todos } from '../todo.interface';
 import { UpdateComponent } from '../update/update.component';
+import { trigger, transition, style, animate } from '@angular/animations';
 @Component({
   selector: 'app-home',
   standalone: true,
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('200ms ease-out', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [animate('300ms ease-in', style({ opacity: 0 }))]),
+    ]),
+  ],
   imports: [CommonModule, FormsModule, MatIconModule, UpdateComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

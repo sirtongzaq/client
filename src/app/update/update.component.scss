@@ -5,9 +5,9 @@
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1;
+    z-index: 5;
 
     .create-content {
         display: flex;
@@ -233,7 +233,7 @@
     .create-content {
         width: 85% !important;
         height: 82% !important;
-        top: 55% !important;
+        top: 50% !important;
     }
 
     .input-text-field {
@@ -243,4 +243,5 @@
     textarea {
         width: 75% !important;
     }
+
 }
